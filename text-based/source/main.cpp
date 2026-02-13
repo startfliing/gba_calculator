@@ -1,8 +1,11 @@
 #include "tonc.h"
 
 #include "terminal.hpp"
+#include "calculator.hpp"
 
 #include "image.h"
+
+const char* equation = "3 * 4 ^ 2";
 
 int main(){
     //enable Border BG
@@ -23,9 +26,11 @@ int main(){
     REG_BG1CNT = Terminal::setCNT(1, cbb+1, sbb+1);
     REG_DISPCNT = DCNT_BG0 | DCNT_BG1 | DCNT_MODE0;
 
+    Calculator calc;
+    int result = (int)calc.calculate(equation);  // Returns 11
     
     //Setup is done. Lets put it into action!
-    Terminal::log("Hello World!");
+    Terminal::log("%% = %%", equation, result);
 
     while(1){
 
