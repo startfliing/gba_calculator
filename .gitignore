@@ -38,6 +38,10 @@
 *.app
 *.elf
 *.gba
+*.sav
+
+# Build
+build/
 
 # debug information files
 *.dwo
